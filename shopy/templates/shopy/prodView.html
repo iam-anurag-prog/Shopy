@@ -1,0 +1,72 @@
+{% extends 'shopy/basic.html' %}
+
+{% block title%} {{product.product_name}} - Shopy{% endblock %}
+{% block body %}
+<div class="container my-4">
+    <div class="row">
+    <div class="col-md-4">
+    <div class="row">
+        <img src="/media/{{product.image}}" width="350px" height="550px">
+    </div>
+        <div class="row mt-1 ml-4">
+            <button class="btn btn-primary mx-3">Buy Now</button>
+            <button class="btn btn-primary">Add To Cart</button>
+        </div>
+
+    </div>
+
+    <div class="col-md-8">
+        <h3>{{product.product_name}}</h3>
+        <p><b>Price: ₹{{product.price}} </b></p>
+        <h6>Available offers</h6>
+    <ul class="offers">
+        <li><span class="offer-title">Bank Offer:</span> Get 10% off up to ₹50 on first Flipkart UPI Transactions on order of ₹200 and above <span class="offer-terms">T&C</span>
+        </li>
+        <li><span class="offer-title">Bank Offer:</span> Additional ₹15 off on first Flipkart UPI Transaction, on orders of ₹600 and above <span class="offer-terms">T&C</span>
+        </li>
+        <li><span class="offer-title">Bank Offer:</span> 5% Cashback on Flipkart Axis Bank Card <span class="offer-terms">T&C</span>
+        </li>
+        <li><span class="offer-title">Special Price:</span> Get extra 25% off (price inclusive of cashback/coupon) <span class="offer-terms">T&C</span>
+        </li>
+    </ul>
+        <p>{{product.product_desc}}</p>
+        <p>{{product.product_desc2}}</p>
+    </div>
+    </div>
+
+
+</div>
+
+{% endblock %}
+
+{% block js %}
+<script>
+console.log('working');
+if(localStorage.getItem('cart') == null){
+var cart = {};
+}
+else
+{
+cart = JSON.parse(localStorage.getItem('cart'));
+document.getElementById('cart').innerHTML = Object.keys(cart).length;
+}
+$('.cart').click(function(){
+console.log('clicked');
+var idstr = this.id.toString();
+console.log(idstr);
+if (cart[idstr] !=undefined){
+cart[idstr] = cart[idstr] + 1;
+}
+else
+{
+cart[idstr] = 1;
+}
+console.log(cart);
+localStorage.setItem('cart', JSON.stringify(cart));
+document.getElementById('cart').innerHTML = Object.keys(cart).length;
+});
+$ ('#popcart').popover()
+
+document.getElementById("popcart").setAttribute('data-content', '<h5>Cart</h5>');
+</script>
+{% endblock %}

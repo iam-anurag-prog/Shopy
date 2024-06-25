@@ -1,0 +1,97 @@
+{% extends 'shopy/basic.html' %}
+{% block title %}Payment Successfull - Shopy{% endblock %}
+
+{% block css %}
+        .container {
+            width: 100%;
+            padding-right: 16px;
+            padding-left: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .receipt {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 70%;
+            height: 70%;
+            text-align: center;
+        }
+        .receipt-header {
+            background-color: #e6f7ff;
+            padding: 20px;
+            border-radius: 10px 10px 0 0;
+            margin: -20px -20px 20px;
+        }
+        .receipt-header h1 {
+            margin: 0;
+            color: #0055a5;
+        }
+        .receipt-header .amount {
+            font-size: 24px;
+            font-weight: bold;
+            color: #009688;
+            margin: 10px 0;
+        }
+        .receipt-header .amount-description {
+            font-size: 14px;
+            color: #777;
+        }
+        .receipt-body {
+            text-align: center;
+        }
+        .receipt-body p {
+            margin: 5px 0;
+        }
+        .receipt-footer {
+            margin-top: 20px;
+            border-top: 1px solid #eee;
+            padding-top: 10px;
+            font-size: 12px;
+            color: #888;
+        }
+        .bank-logo {
+            width: 20px;
+            height: 20px;
+            vertical-align: middle;
+            margin-right: 5px;
+        }
+
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+    <div class="receipt">
+        <div class="receipt-header">
+            <h1>Paytm</h1>
+            <div class="amount">₹ 2150</div>
+            <div class="amount-description">Two Thousand One Hundred Fifty Only</div>
+        </div>
+        <div class="receipt-body">
+            <p><strong>To:</strong> Pema Lhamo</p>
+            <p>Yes Bank - 0025</p>
+            <p>Yes Bank - 0025</p>
+            <p><strong>From:</strong> Arushi Singh</p>
+            <p>Paytm Payments Bank - 7849</p>
+            <p><strong>Reference ID:</strong> 323532122991</p>
+            <p>07 Jun, 06:20 PM</p>
+        </div>
+        <div class="receipt-footer">
+            <p>100% SECURE PAYMENTS</p>
+            <p>Powered by UPI</p>
+        </div>
+        <div class="circle">
+        <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+            <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+            <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+        </svg>
+        </div>
+    </svg>
+    </div>
+    </div>
+{% endblock %}
+
+
